@@ -52,8 +52,11 @@ function showCard() {
         if (firstElement.src == this.src) {
             console.log('yes');
         } else {
-            firstElement.src = cards[firstCardId].src;
-            this.src = cards[secondCardId].src;
+            firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+            this.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+            firstElement.classList = "card-hide"; 
+            this.classList = "card-hide";
+            console.log('no');
         }
 
         firstCardId = -1;
