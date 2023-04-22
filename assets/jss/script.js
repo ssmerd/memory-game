@@ -1,4 +1,6 @@
 
+var firstCardId = -1;
+var secondCardId = -1;
 
 document.addEventListener("DOMContentLoaded", function() {
     sortCardsArray(cards);
@@ -15,10 +17,10 @@ function createCardsGame() {
 
     let cards = document.getElementsByClassName('card');
     let startGameBtn = document.getElementById('start-game');
-    
-    console.log(startGameBtn);
+    let resetGameBtn = document.getElementById('reset-game');
 
     startGameBtn.addEventListener('click', startGame);
+
 
     for (let i = 0; i < cards.length; i++) {
         let image = document.createElement('img');
@@ -33,16 +35,49 @@ function startGame() {
 
     console.log('start game...')
 
+    let startGameBtn = document.getElementById('start-game');
+    let resetGameBtn = document.getElementById('reset-game');
     let images = document.getElementsByTagName('img');
+    let noOfMoves = document.getElementById('no-of-moves');
+    let elapsedTime = document.getElementById('elapsed-time');
 
     for (let i = 0; i < images.length; i++) {
-        console.log(images[i]);
-        images[i].addEventListener('click', showCard)
+        images[i].addEventListener('click', showCard);
+        
     }
+
+    startGameBtn.removeEventListener('click', startGame);
+    resetGameBtn.addEventListener('click', resetGame);
+
+    noOfMoves.innerHTML = 0;
+    elapsedTime.innerHTML = 0;
+
+    firstCardId = -1;
+    secondCardId = -1;
 }
 
-var firstCardId = -1;
-var secondCardId = -1;
+function resetGame() {
+
+    console.log('reset game...');
+
+    let startGameBtn = document.getElementById('start-game');
+    let resetGameBtn = document.getElementById('reset-game');
+    let images = document.getElementsByTagName('img');
+    
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].removeEventListener('click', showCard);   
+        images[i].src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+        images[i].alt = 'Colorful Russian Matryoshka';
+    }
+
+    startGameBtn.addEventListener('click', startGame);
+    resetGameBtn.removeEventListener('click', resetGame);
+
+}
+
+
+
 
 function hideCard(id) {
 
@@ -50,7 +85,7 @@ function hideCard(id) {
 
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
 
-    firstElement.classList = "card-hide"; 
+    // firstElement.classList = "card-hide"; 
 
 }
 
@@ -62,8 +97,8 @@ function hideCards(id1, id2) {
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
     secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
 
-    firstElement.classList = "card-hide"; 
-    secondElement.classList = "card-hide";
+    // firstElement.classList = "card-hide"; 
+    // secondElement.classList = "card-hide";
 }
 
 function showCard() {
@@ -72,7 +107,7 @@ function showCard() {
 
     this.src = cards[cardId].src;
     this.alt = cards[cardId].alt;
-    this.classList = "card-view";
+    // this.classList = "card-view";
 
     if (firstCardId === -1) {
         firstCardId = cardId;
@@ -104,12 +139,22 @@ function showCard() {
             console.log('no');
         }
 
+        incrementMoves();
+
         firstCardId = -1;
         secondCardId = -1;
     } 
 
 }
 
+function incrementMoves() {
+ 
+    let noOfMoves = document.getElementById('no-of-moves');
+
+    let moves = parseInt(noOfMoves.innerHTML);
+
+    noOfMoves.innerHTML = ++moves;
+}
 const cards = [
     {
         src: 'assets/images/colorful-russian-doll-png-1.png',

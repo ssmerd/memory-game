@@ -16,46 +16,60 @@ body{
   background: #6563FF;
 }
 
+span {
+    margin-left: 2em;
+}
+
+.header {
+    display: flex;
+    flex-direction: rows;
+    justify-content: center;
+    width: 50%;
+
+}
 .wrapper{
+  flex-direction: rows;
   padding: 25px;
   border-radius: 10px;
   background: #F8F8F8;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.time {
-    width: 20%;
-    padding: 20px;
+.time,.moves {
+    width: 30%;
+    padding: 0.7em;
     border-radius: 10px;
     background: #F8F8F8;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-bottom: 1em; 
+    margin: 1em; 
 }
 
 .btn {
     display: flex;
     flex-direction: row;
-    width: 20%;
-    padding: 1.2em;
+    width: 30%;
     border-radius: 10px;
     background: #F8F8F8;
-
     margin: 1em 1em; 
     justify-content: center;
 }
 
-.btn1,.btn2 {
+.btn1 input,.btn2 input {
+    font-family: 'Poppins', sans-serif;
     font-size: 1em;
     text-align: center;
-    padding: 1em;
+    padding: 0.7em;
     margin: 1em;
-    display: flex;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
-    transform-style: preserve-3d;
 }
 
+.btn1:active input, .btn2:active input {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
+}
 
 .board {
   display: flex;
