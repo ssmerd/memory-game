@@ -1,6 +1,9 @@
 
 var firstCardId = -1;
 var secondCardId = -1;
+let elapsedSeconds = 0;
+let timerInterval = null;
+let noOfPairsFound = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     sortCardsArray(cards);
@@ -54,6 +57,24 @@ function startGame() {
 
     firstCardId = -1;
     secondCardId = -1;
+    noOfPairsFound = 0;
+    elapsedSeconds = 0;
+
+	const timerElement = document.getElementById("elapsed-time");
+
+    console.log(timerInterval);
+
+    if (timerInterval)
+        clearInterval(timerInterval);
+
+	timerInterval = setInterval(() => {
+
+		elapsedSeconds++;
+
+		timerElement.innerText = elapsedSeconds + " s";		
+    }, 1000);
+
+    console.log(timerInterval);
 }
 
 function resetGame() {
@@ -73,6 +94,10 @@ function resetGame() {
 
     startGameBtn.addEventListener('click', startGame);
     resetGameBtn.removeEventListener('click', resetGame);
+
+    if (timerInterval)
+         clearInterval(timerInterval);
+
 
 }
 
@@ -131,6 +156,12 @@ function showCard() {
         if (firstElement.src == this.src) {
             firstElement.removeEventListener('click', showCard);
             this.removeEventListener('click', showCard);
+            
+            noOfPairsFound++;
+
+            if (timerInterval && noOfPairsFound === 8)
+                clearInterval(timerInterval);
+            
             console.log('yes');
         } else {
             
@@ -155,6 +186,10 @@ function incrementMoves() {
 
     noOfMoves.innerHTML = ++moves;
 }
+
+
+
+
 const cards = [
     {
         src: 'assets/images/colorful-russian-doll-png-1.png',
