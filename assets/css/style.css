@@ -17,15 +17,23 @@ body{
 }
 
 span {
-    margin-left: 2em;
+  margin-left: 2em;
 }
 
 .header {
-    display: flex;
-    flex-direction: rows;
-    justify-content: center;
-    width: 50%;
+  display: flex;    
+  flex-direction: rows;
+  justify-content: center;
+  width: 400px;
+}
 
+.time,.moves {
+    width: 40%;
+    padding: 0.7em;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 1em; 
 }
 .wrapper{
   flex-direction: rows;
@@ -35,41 +43,11 @@ span {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.time,.moves {
-    width: 30%;
-    padding: 0.7em;
-    border-radius: 10px;
-    background: #F8F8F8;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin: 1em; 
-}
 
-.btn {
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    border-radius: 10px;
-    background: #F8F8F8;
-    margin: 1em 1em; 
-    justify-content: center;
-}
 
-.btn1 input,.btn2 input {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    text-align: center;
-    padding: 0.7em;
-    margin: 1em;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
-}
 
-.btn1:active input, .btn2:active input {
-    transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 
-}
+
 
 .board {
   display: flex;
@@ -102,6 +80,32 @@ span {
 .card-hide {
   
     transition: transform 0.25s linear; 
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    margin: 1em 1em; 
+    justify-content: center;
+}
+
+.btn1 input,.btn2 input {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    padding: 0.7em;
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
+}
+
+.btn1:active input, .btn2:active input {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 /* .board .card{
