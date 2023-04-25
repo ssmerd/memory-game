@@ -69,13 +69,13 @@ span {
 }
 
 .card-view {
-    transition: transform 0.25s linear;
+    transition-duration: 2s;
     transform: rotateY(180deg);
 }
 
 .card-hide {
-  
-    transition: transform 0.25s linear; 
+    transition-duration: 2s;
+    transform: rotateY(180deg);
 }
 
 .btn {
@@ -147,3 +147,4 @@ span {
         height: 280px;
         width: 280px;
       }
+}

@@ -42,6 +42,21 @@ function createCardsGame() {
     }
 }
 
+function addImageListeners() {
+    let images = document.getElementsByTagName('img');
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].addEventListener('click', showCard);  
+    }
+}
+
+function removeImageListeners() {
+    let images = document.getElementsByTagName('img');
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].removeEventListener('click', showCard);  
+    }
+}
 /**
  * Start game function. It start the game initially or after reset.
  */
@@ -51,13 +66,13 @@ function startGame() {
 
     let startGameBtn = document.getElementById('start-game');
     let resetGameBtn = document.getElementById('reset-game');
-    let images = document.getElementsByTagName('img');
     let noOfMoves = document.getElementById('no-of-moves');
     let elapsedTime = document.getElementById('elapsed-time');
 
-    for (let i = 0; i < images.length; i++) {
-        images[i].addEventListener('click', showCard);  
-    }
+    // for (let i = 0; i < images.length; i++) {
+    //     images[i].addEventListener('click', showCard);  
+    // }
+    addImageListeners();
 
     startGameBtn.removeEventListener('click', startGame);
     resetGameBtn.addEventListener('click', resetGame);
@@ -72,8 +87,6 @@ function startGame() {
 
 	const timerElement = document.getElementById("elapsed-time");
 
-    console.log(timerInterval);
-
     if (timerInterval)
         clearInterval(timerInterval);
 
@@ -84,7 +97,6 @@ function startGame() {
 		timerElement.innerText = elapsedSeconds + " s";		
     }, 1000);
 
-    console.log(timerInterval);
 }
 
 /**
@@ -144,6 +156,8 @@ function hideCards(id1, id2) {
 
     // firstElement.classList = "card-hide"; 
     // secondElement.classList = "card-hide";
+
+    addImageListeners();
 }
 
 /**
@@ -156,6 +170,7 @@ function showCard() {
 
     this.src = cards[cardId].src;
     this.alt = cards[cardId].alt;
+
     // this.classList = "card-view";
 
     if (firstCardId === -1) {
@@ -188,9 +203,9 @@ function showCard() {
             
             console.log('yes');
         } else {
-            
-            setTimeout(hideCards, 1000, firstCardId, secondCardId);
-            
+            removeImageListeners();
+
+            setTimeout(hideCards, 2000, firstCardId, secondCardId);
             console.log('no');
         }
 
