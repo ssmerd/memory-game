@@ -1,11 +1,28 @@
 
+/**
+ * Memory card game
+ * Author: Sebastian Smerd
+ * Project Portfolio 2
+ */
+
+
 /** 
  * Global variables used in the program
+ *
+ * Ids of the cards chosen
  */
 var firstCardId = -1;
 var secondCardId = -1;
+
+/**
+ * Elapsed time interval and timer
+ */
 let elapsedSeconds = 0;
 let timerInterval = null;
+
+/**
+ * Numbers of card pairs found
+ */
 let noOfPairsFound = 0;
 
 /**
@@ -13,12 +30,8 @@ let noOfPairsFound = 0;
  */
 document.addEventListener("DOMContentLoaded", function() {
     sortCardsArray(cards);
-    createCardsGame();
-
-    
+    createCardsGame(); 
 })
-
-
 
 /**
  * The main function createing the game board. It fills the borard with Matryoska images,
@@ -32,7 +45,6 @@ function createCardsGame() {
 
     startGameBtn.addEventListener('click', startGame);
 
-
     for (let i = 0; i < cards.length; i++) {
         let image = document.createElement('img');
         image.setAttribute('card-id', i);
@@ -42,21 +54,6 @@ function createCardsGame() {
     }
 }
 
-function addImageListeners() {
-    let images = document.getElementsByTagName('img');
-
-    for (let i = 0; i < images.length; i++) {
-        images[i].addEventListener('click', showCard);  
-    }
-}
-
-function removeImageListeners() {
-    let images = document.getElementsByTagName('img');
-
-    for (let i = 0; i < images.length; i++) {
-        images[i].removeEventListener('click', showCard);  
-    }
-}
 /**
  * Start game function. It start the game initially or after reset.
  */
@@ -69,9 +66,6 @@ function startGame() {
     let noOfMoves = document.getElementById('no-of-moves');
     let elapsedTime = document.getElementById('elapsed-time');
 
-    // for (let i = 0; i < images.length; i++) {
-    //     images[i].addEventListener('click', showCard);  
-    // }
     addImageListeners();
 
     startGameBtn.removeEventListener('click', startGame);
@@ -126,45 +120,10 @@ function resetGame() {
     resetMoves();
 }
 
-
-
 /**
- * The function hides a card that was clicked twice.
- * @param {*} id  - card id
+ * This is the main function that shows the cards and check for a match.
  */
-function hideCard(id) {
-
-    let firstElement = document.querySelector(`[card-id="${id}"]`);
-
-    firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
-
-    // firstElement.classList = "card-hide"; 
-
-}
-/**
- * The function hides two clicked cards if they don't match
- * @param {*} id1 - id of the first card
- * @param {*} id2  - id of the second card
- */
-function hideCards(id1, id2) {
-
-    let firstElement = document.querySelector(`[card-id="${id1}"]`);
-    let secondElement = document.querySelector(`[card-id="${id2}"]`);
- 
-    firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
-    secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
-
-    // firstElement.classList = "card-hide"; 
-    // secondElement.classList = "card-hide";
-
-    addImageListeners();
-}
-
-/**
- * 
- * @returns This is the main function that shows the cards and check for a match.
- */
-function showCard() {
+ function showCard() {
     
     let cardId = this.getAttribute("card-id");
 
@@ -204,7 +163,6 @@ function showCard() {
             console.log('yes');
         } else {
             removeImageListeners();
-
             setTimeout(hideCards, 2000, firstCardId, secondCardId);
             console.log('no');
         }
@@ -218,6 +176,39 @@ function showCard() {
 }
 
 /**
+ * The function hides a card that was clicked twice.
+ * @param {*} id  - card id
+ */
+function hideCard(id) {
+
+    let firstElement = document.querySelector(`[card-id="${id}"]`);
+
+    firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+
+    // firstElement.classList = "card-hide"; 
+}
+
+/**
+ * The function hides two clicked cards if they don't match
+ * @param {*} id1 - id of the first card
+ * @param {*} id2  - id of the second card
+ */
+function hideCards(id1, id2) {
+
+    let firstElement = document.querySelector(`[card-id="${id1}"]`);
+    let secondElement = document.querySelector(`[card-id="${id2}"]`);
+ 
+    firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+    secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
+
+    // firstElement.classList = "card-hide"; 
+    // secondElement.classList = "card-hide";
+
+    addImageListeners();
+}
+
+
+/**
  * The function mixes arrary.
  * @param {*} cards - Array of cards to play the game.
  */
@@ -225,6 +216,27 @@ function showCard() {
     cards.sort(function(){return 0.5 - Math.random()});
 }
 
+/**
+ * The function adds image listeners
+ */
+function addImageListeners() {
+    let images = document.getElementsByTagName('img');
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].addEventListener('click', showCard);  
+    }
+}
+
+/**
+ * The function removes image listeners
+ */
+function removeImageListeners() {
+    let images = document.getElementsByTagName('img');
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].removeEventListener('click', showCard);  
+    }
+}
 
 /**
  * The function increaments moves
@@ -244,6 +256,7 @@ function resetMoves() {
     let timerElement = document.getElementById("elapsed-time");
     timerElement.innerText = 0;
 }
+
 /**
  * The array with the images of the cards.
  */
