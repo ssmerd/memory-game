@@ -1,5 +1,7 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import "compass/css3";
+
 *{
   margin: 0;
   padding: 0;
@@ -71,11 +73,13 @@ span {
 .card-view {
     transition-duration: 2s;
     transform: rotateY(180deg);
+    transform-style: preserve-3d; 
 }
 
 .card-hide {
     transition-duration: 2s;
     transform: rotateY(180deg);
+    transform-style: preserve-3d;
 }
 
 .btn {
@@ -96,12 +100,28 @@ span {
     margin: 1em;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
+    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24); */
+    border: 0px solid #000;	
 }
 
 .btn1:active input, .btn2:active input {
     transform: scale(0.98);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+/* Initiate Auto-Pulse animations */
+.pulse-button {
+	animation: borderPulse 1000ms infinite ease-out, infinite ease-in;
+}
+
+/* Declare border pulse animation */
+@keyframes borderPulse {
+  0% {
+    box-shadow: inset 0px 0px 0px 5px rgba(255, 255, 255,.4), 0px 0px 0px 0px rgba(255,255,255,1);
+  }
+  100% {
+    box-shadow: inset 0px 0px 0px 3px rgba(117, 117, 255,.2), 0px 0px 0px 10px rgba(255,255,255,0);
+  }
 }
 
 

@@ -11,8 +11,8 @@
  *
  * Ids of the cards chosen
  */
-var firstCardId = -1;
-var secondCardId = -1;
+let firstCardId = -1;
+let secondCardId = -1;
 
 /**
  * Elapsed time interval and timer
@@ -44,6 +44,7 @@ function createCardsGame() {
     let resetGameBtn = document.getElementById('reset-game');
 
     startGameBtn.addEventListener('click', startGame);
+    resetGameBtn.classList.remove('pulse-button');
 
     for (let i = 0; i < cards.length; i++) {
         let image = document.createElement('img');
@@ -73,6 +74,7 @@ function startGame() {
 
     noOfMoves.innerHTML = 0;
     elapsedTime.innerHTML = 0;
+    startGameBtn.classList.remove('pulse-button');
 
     firstCardId = -1;
     secondCardId = -1;
@@ -99,7 +101,9 @@ function startGame() {
 function resetGame() {
 
     console.log('reset game...');
-
+    
+    sortCardsArray(cards);
+    
     let startGameBtn = document.getElementById('start-game');
     let resetGameBtn = document.getElementById('reset-game');
     let images = document.getElementsByTagName('img');
@@ -113,6 +117,9 @@ function resetGame() {
 
     startGameBtn.addEventListener('click', startGame);
     resetGameBtn.removeEventListener('click', resetGame);
+
+    resetGameBtn.classList.remove('pulse-button');
+    startGameBtn.classList.add('pulse-button');
 
     if (timerInterval)
          clearInterval(timerInterval);
@@ -130,7 +137,6 @@ function resetGame() {
     this.src = cards[cardId].src;
     this.alt = cards[cardId].alt;
 
-    // this.classList = "card-view";
 
     if (firstCardId === -1) {
         firstCardId = cardId;
@@ -157,9 +163,11 @@ function resetGame() {
             
             noOfPairsFound++;
 
-            if (timerInterval && noOfPairsFound === 8)
+            if (timerInterval && noOfPairsFound === 8) {
+                enableResetButton();
                 clearInterval(timerInterval);
-            
+            }
+
             console.log('yes');
         } else {
             removeImageListeners();
@@ -175,6 +183,11 @@ function resetGame() {
 
 }
 
+function enableResetButton() {
+    let resetGameBtn = document.getElementById('reset-game');   
+
+    resetGameBtn.classList.add('pulse-button');
+}
 /**
  * The function hides a card that was clicked twice.
  * @param {*} id  - card id
@@ -185,7 +198,6 @@ function hideCard(id) {
 
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
 
-    // firstElement.classList = "card-hide"; 
 }
 
 /**
@@ -200,9 +212,6 @@ function hideCards(id1, id2) {
  
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
     secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
-
-    // firstElement.classList = "card-hide"; 
-    // secondElement.classList = "card-hide";
 
     addImageListeners();
 }
