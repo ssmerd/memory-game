@@ -25,6 +25,9 @@ let timerInterval = null;
  */
 let noOfPairsFound = 0;
 
+
+let openCardsArray = [];
+
 /**
  * Add the main DOMContentLoaded listener. Once the event is triggered, the game is created.
  */
@@ -125,6 +128,7 @@ function resetGame() {
     if (timerInterval)
          clearInterval(timerInterval);
 
+         openCardsArray = [];
     resetMoves();
 }
 
@@ -163,6 +167,9 @@ function resetGame() {
             firstElement.removeEventListener('click', showCard);
             this.removeEventListener('click', showCard);
             
+            openCardsArray.push(firstCardId);
+            openCardsArray.push(secondCardId);
+
             noOfPairsFound++;
 
             if (timerInterval && noOfPairsFound === 8) {
@@ -172,7 +179,7 @@ function resetGame() {
 
             console.log('yes');
         } else {
-            // removeImageListeners();
+            removeImageListeners();
             setTimeout(hideCards, 2000, firstCardId, secondCardId);
             console.log('no');
         }
@@ -215,10 +222,7 @@ function hideCards(id1, id2) {
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
     secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
 
-    // if (id1 !== id2) {
-    //     firstElement.addEventListener('click', showCard);
-    //     secondElement.addEventListener('click', showCard);
-    // }
+    addImageListeners();
          
 }
 
@@ -232,14 +236,15 @@ function hideCards(id1, id2) {
 }
 
 /**
- * The function adds image listeners
+ * The function adds image listeners of the cards that haven't been uncovered.
  */
 function addImageListeners() {
-    // let images = document.getElementsByTagName('img');
+
     let images = document.querySelectorAll('[data-id="doll"]');
 
     for (let i = 0; i < images.length; i++) {
-        images[i].addEventListener('click', showCard);  
+        if (!openCardsArray.includes(images[i].getAttribute('card-id')))
+            images[i].addEventListener('click', showCard);  
     }
 }
 
@@ -247,10 +252,11 @@ function addImageListeners() {
  * The function removes image listeners
  */
 function removeImageListeners() {
-    // let images = document.getElementsByTagName('img');
+
     let images = document.querySelectorAll('[data-id="doll"]');
     for (let i = 0; i < images.length; i++) {
-        images[i].removeEventListener('click', showCard);  
+        if (!openCardsArray.includes(images[i].getAttribute('card-id')))
+            images[i].removeEventListener('click', showCard);   
     }
 }
 
