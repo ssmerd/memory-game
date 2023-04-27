@@ -49,6 +49,7 @@ function createCardsGame() {
     for (let i = 0; i < cards.length; i++) {
         let image = document.createElement('img');
         image.setAttribute('card-id', i);
+        image.setAttribute('data-id', 'doll');
         image.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
         image.alt = 'Colorful Russian Matryoshka';
         cards[i].appendChild(image);
@@ -106,8 +107,8 @@ function resetGame() {
     
     let startGameBtn = document.getElementById('start-game');
     let resetGameBtn = document.getElementById('reset-game');
-    let images = document.getElementsByTagName('img');
-    
+    // let images = document.getElementsByTagName('img');
+    let images = document.querySelectorAll('[data-id="doll"]');
 
     for (let i = 0; i < images.length; i++) {
         images[i].removeEventListener('click', showCard);   
@@ -229,7 +230,8 @@ function hideCards(id1, id2) {
  * The function adds image listeners
  */
 function addImageListeners() {
-    let images = document.getElementsByTagName('img');
+    // let images = document.getElementsByTagName('img');
+    let images = document.querySelectorAll('[data-id="doll"]');
 
     for (let i = 0; i < images.length; i++) {
         images[i].addEventListener('click', showCard);  
@@ -240,8 +242,8 @@ function addImageListeners() {
  * The function removes image listeners
  */
 function removeImageListeners() {
-    let images = document.getElementsByTagName('img');
-
+    // let images = document.getElementsByTagName('img');
+    let images = document.querySelectorAll('[data-id="doll"]');
     for (let i = 0; i < images.length; i++) {
         images[i].removeEventListener('click', showCard);  
     }
