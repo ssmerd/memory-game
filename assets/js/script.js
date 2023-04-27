@@ -142,6 +142,7 @@ function resetGame() {
     if (firstCardId === -1) {
         firstCardId = cardId;
         console.log(firstCardId);
+        return;
     } else {
         secondCardId = cardId;
         console.log(secondCardId);
@@ -158,7 +159,7 @@ function resetGame() {
         
         let firstElement = document.querySelector(`[card-id="${firstCardId}"]`);
 
-        if (firstElement.src == this.src) {
+        if (firstElement.src === this.src) {
             firstElement.removeEventListener('click', showCard);
             this.removeEventListener('click', showCard);
             
@@ -171,7 +172,7 @@ function resetGame() {
 
             console.log('yes');
         } else {
-            removeImageListeners();
+            // removeImageListeners();
             setTimeout(hideCards, 2000, firstCardId, secondCardId);
             console.log('no');
         }
@@ -214,7 +215,11 @@ function hideCards(id1, id2) {
     firstElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
     secondElement.src = 'assets/images/matryoshka-doll-souvenir-toy.png';
 
-    addImageListeners();
+    // if (id1 !== id2) {
+    //     firstElement.addEventListener('click', showCard);
+    //     secondElement.addEventListener('click', showCard);
+    // }
+         
 }
 
 
