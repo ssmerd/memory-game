@@ -25,7 +25,9 @@ let timerInterval = null;
  */
 let noOfPairsFound = 0;
 
-
+/**
+ * An array with ids of uncovered cards  
+ */
 let openCardsArray = [];
 
 /**
@@ -64,8 +66,6 @@ function createCardsGame() {
  */
 function startGame() {
 
-    console.log('start game...')
-
     let startGameBtn = document.getElementById('start-game');
     let resetGameBtn = document.getElementById('reset-game');
     let noOfMoves = document.getElementById('no-of-moves');
@@ -103,14 +103,11 @@ function startGame() {
  * The function reset the game. In order to play the game again, a user has to click the start button.
  */
 function resetGame() {
-
-    console.log('reset game...');
     
     sortCardsArray(cards);
     
     let startGameBtn = document.getElementById('start-game');
     let resetGameBtn = document.getElementById('reset-game');
-    // let images = document.getElementsByTagName('img');
     let images = document.querySelectorAll('[data-id="doll"]');
 
     for (let i = 0; i < images.length; i++) {
@@ -176,12 +173,9 @@ function resetGame() {
                 enableResetButton();
                 clearInterval(timerInterval);
             }
-
-            console.log('yes');
         } else {
             removeImageListeners();
             setTimeout(hideCards, 2000, firstCardId, secondCardId);
-            console.log('no');
         }
 
         incrementMoves();
@@ -192,11 +186,15 @@ function resetGame() {
 
 }
 
+/**
+ * Enable Reset Game button so that it blinks
+ */
 function enableResetButton() {
     let resetGameBtn = document.getElementById('reset-game');   
 
     resetGameBtn.classList.add('pulse-button');
 }
+
 /**
  * The function hides a card that was clicked twice.
  * @param {*} id  - card id

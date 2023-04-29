@@ -1,31 +1,33 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import "compass/css3";
 
+/**
+ *  Main colors used in the game
+ */
 :root {
     --blue: #38598b;
     --white:#e7eaf6
-  }
+}
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 90vh;
-  background: var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background: var(--blue);
 }
 
 span {
-  margin-left: 2em;
+    margin-left: 2em;
 }
 
 .instructions {
@@ -39,6 +41,7 @@ span {
 .instructions > h1 {
     text-align: center;
 }
+
 .instructions > h2 {
     text-align: center;
     margin-top: 5%;
@@ -48,14 +51,13 @@ span {
 .instructions > p {
     text-align: justify;
     margin: 3% 3%; 
- 
 }
 
 .results {
-  display: flex;    
-  flex-direction: rows;
-  justify-content: center;
-  width: 400px;
+    display: flex;    
+    flex-direction: rows;
+    justify-content: center;
+    width: 400px;
 }
 
 .time,.moves {
@@ -68,35 +70,38 @@ span {
 }
 
 .wrapper{
-  flex-direction: rows;
-  padding: 25px;
-  border-radius: 10px;
-  background: var(--white);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-direction: rows;
+    padding: 25px;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .board {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-  width: 400px;
-  flex-wrap: wrap;
-  align-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .card {
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transform-style: preserve-3d;
-    height: calc(100% / 4 - 10px);
-    width: calc(100% / 4 - 10px); 
+
+    height: calc(100% / 4);
+    width: calc(100% / 4); 
+
     padding: 0.5em;
 }
 
 .card img {
-    height: calc(100% - 10px);
-    width: calc(100%  - 10px);  
+
+    height: calc(100%);
+    width: calc(100%);
 }
 
 .btn {
@@ -157,13 +162,9 @@ footer img {
     .board {
         height: 300px;
         width: 300px;
-      }
+    }
 
-      .header {
-        width: 300px;
-      }
-
-      .btn {
+    .header {
         width: 300px;
     }
 
@@ -190,11 +191,13 @@ footer img {
     
     .instructions > p {
         font-size: 0.8em;
-        /* margin: 5% 5%; */
     }
+
     .btn {
+        width: 300px;
         margin: 0.7em 0.7em; 
     }
+
     .btn1 input,.btn2 input {
         font-size: 0.8em;
         padding: 0.6em;
@@ -206,16 +209,18 @@ footer img {
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 350px and down) */
 @media only screen and (max-width: 350px) {
 
     .wrapper {
         padding: 10px;
     }
+    
     .board {
         height: 280px;
         width: 280px;
-      }
+    }
+    
     .instructions {
         width: 280px;
         margin-left: calc((100% - 280px)/2);
