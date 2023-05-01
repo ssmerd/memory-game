@@ -55,7 +55,7 @@ span {
 
 .results {
     display: flex;    
-    flex-direction: rows;
+    flex-direction: row;
     justify-content: center;
     width: 400px;
 }
@@ -70,7 +70,7 @@ span {
 }
 
 .wrapper{
-    flex-direction: rows;
+    flex-direction: row;
     padding: 25px;
     border-radius: 10px;
     background: var(--white);
