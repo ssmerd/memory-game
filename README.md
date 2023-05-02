@@ -90,8 +90,7 @@ The site contains all necessary features of a simple, functioning memory card ga
     - Located at the top of the site
 <br>
 <br>
-
-    ![header](readme/header.png)
+    ![Header](readme/header.png)
 <br>
 <br>
 
@@ -104,8 +103,7 @@ The site contains all necessary features of a simple, functioning memory card ga
     - Moves counter increments by 1 every time the user clicks on a card
 <br>
 <br>
-
-    ![timer and moves counter](readme/counters.png)
+    ![Timer and moves counter](readme/counters.png)
 <br>
 <br>
 
@@ -117,7 +115,7 @@ The site contains all necessary features of a simple, functioning memory card ga
 <br>
 <br>
 
-    ![game area](readme/grid.png)
+    ![Game area](readme/grid.png)
 <br>
 <br>
 
@@ -138,7 +136,7 @@ The site contains all necessary features of a simple, functioning memory card ga
     - Contains the link to the open-source GitHub repo of the site
 <br>
 <br>
-    ![footer](readme/footer.png)
+    ![Footer](readme/footer.png)
 <br>
 <br>
 
