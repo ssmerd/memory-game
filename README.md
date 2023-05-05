@@ -8,7 +8,8 @@
 - [Introduction](#introduction)
 - [Design](#design)
     - [Wireframes](#wireframes)
-    - [Features](#features)
+- [Features](#features)
+- [Future Features](#future-features)
 - [UX](#ux)
     - [Site Goals](#site-goals)
     - [User Stories](#user-stories)
@@ -32,7 +33,7 @@
 
 Memory Cards with Russian Dolls is a memory card game where the user's aim is to find all matching picture cards in as little time and moves as possiple.
 
-This game is an interactive Front-End web application using HTML, CSS and JavaScript. It was designed with simple, intuitive functionality in mind. All features are self-explanetory and the game itself is rather common, thus the rules are well known. There is a short description of the rules though. 
+This game is an interactive Front-End web application using HTML, CSS and JavaScript. It was designed with simple, intuitive functionality in mind. All features are self-explanatory and the game itself is rather common, thus the rules are well known. There is a short description of the rules though. 
 
 This game was tested through development, implementation and deployment stages. Also the documentation and comments were provided to maximise future maintainability. 
 
@@ -44,7 +45,7 @@ The application was deployed to the GitHub Pages cloud platform.
 
 The README.md file explains the game purpose, the value, design, development and deployment procedure.
 
-The game code commneted where required and formatted for maintability.
+The game code with comments where required and formatted for maintability.
 <br>
 <br>
 
@@ -65,7 +66,7 @@ Link to [live site](https://ssmerd.github.io/memory-game/)
 
 * ## Wireframes
 
-The wireframe in Figma shows a minimal viable product. It shows a simple games rules, the board, counters and buttons.
+The wireframe in Figma shows a minimal viable product. It shows the game rules, the board, counters and buttons.
 
 <br>
 <br>
@@ -76,7 +77,7 @@ The wireframe in Figma shows a minimal viable product. It shows a simple games r
 <br>
 
 
-* ## Features
+# Features
 
 The site contains all necessary features of a simple, functioning memory card game.
 
@@ -90,20 +91,20 @@ The site contains all necessary features of a simple, functioning memory card ga
     - Located at the top of the site
 <br>
 <br>
-    ![Header](readme/header.png)
+![Header](readme/header.png)
 <br>
 <br>
 
 
-- **Timer and Moves Counter**
+- **Timer and Move Counter**
 
     - Above game area 
     - Timer starts as soon as user clicks Start Game button 
     - Timer stops when game is completed
-    - Moves counter increments by 1 every time the user clicks on a card
+    - Move counter increments by 1 every time the user clicks on a card
 <br>
 <br>
-    ![Timer and moves counter](readme/counters.png)
+![Timer and moves counter](readme/counters.png)
 <br>
 <br>
 
@@ -115,7 +116,7 @@ The site contains all necessary features of a simple, functioning memory card ga
 <br>
 <br>
 
-    ![Game area](readme/grid.png)
+![Game area](readme/grid.png)
 <br>
 <br>
 
@@ -126,7 +127,7 @@ The site contains all necessary features of a simple, functioning memory card ga
 <br>
 <br>
 
-    ![New Game and Reset button](readme/buttons.png)
+![New Game and Reset button](readme/buttons.png)
 <br>
 <br>
 
@@ -136,7 +137,15 @@ The site contains all necessary features of a simple, functioning memory card ga
     - Contains the link to the open-source GitHub repo of the site
 <br>
 <br>
-    ![Footer](readme/footer.png)
+![Footer](readme/footer.png)
+<br>
+<br>
+
+# Future Features
+
+Making the game multiuser with a ranking of points. 
+Adding a leaderboard of the best players. 
+
 <br>
 <br>
 
@@ -164,10 +173,6 @@ The goal of the site is to provide users the ability to play an enjoyable memory
 - be able to restart the game without reloading the page
 - be able to find the site's creator on GitHub
 
-**As the site administrator I want to:**
-
-- be able to make modifications to the game 
-- provide the user with access to the source code and README.md
 
 <br>
 <br>
@@ -202,7 +207,7 @@ HTML and CSS validators were used to test the pages and css validity. No errors 
 
 * JavaScript [JSHint](https://jshint.com/)
 
-     - No issues.
+![JShint](readme/jshint.png)
 <br>
 <br>
 
@@ -219,6 +224,10 @@ The accessibility of each of the main pages was checked using the lighthouse too
 
 ![Lighthouse](readme/lighthouse.png)
 
+* Multiple browser testing
+
+I tested the game on Google Chrome and Mac Safari on computer and iPhone. The buttons on IPhone Safari had different colors then programmed.
+
 <br>
 <br>
 
@@ -227,23 +236,25 @@ The accessibility of each of the main pages was checked using the lighthouse too
 
 | Test              | Outcome |
 |-------------------|---------------|
-|The game works correctly, no issues have been found|pass|
-|The buttons works correctly|pass|
-|The timer and counters work correctly|pass|
-|Footer navigation link load correct pages|pass|
-|Content reformats on smaller screens|pass|
+|be able to play the game with simple click interaction|pass|
+|see the time that has elapsed while playing the game|pass|
+|see a move counter recording the amount of clicks I perform|pass|
+|see my current score calculated after completing one round of the game|pass|
+|be able to restart the game without reloading the page|pass|
+|be able to find the site's creator on GitHub|pass|
 
 
-All user stories were tested and no faults were found. 
-I thoroughly tested the game and its responsiveness with Google Inspect functionality and ui.dev/amiresponsive tool. Initially I had issues with
-the asynchronous nature of JavaScript events but I managed to find solutions.
+All user stories were tested and no faults were found. I thoroughly tested the game and its responsiveness with Google Inspect functionality and ui.dev/amiresponsive tool. Initially I had issues with the asynchronous nature of JavaScript events but I managed to find solutions.
 
 <br>
 <br>
 
 ## Fixed bugs
 
-Ony a number of html and css issues have been found initialy by the validators. I rectifid them.
+Only a number of html and css issues have been found initially by the validators. I rectified them.
+
+Sample:  I put the class attribute twice on one div. I used flex-direction: rows instead of row.
+
 
 <br>
 <br>
@@ -264,8 +275,9 @@ No unfixed bugs to date.
 This site was deployed to GitHub pages [Live Site](https://ssmerd.github.io/memory-game/).  The steps to deploy are as follows:
 
 *   In the GitHub repository, navigate to the Settings tab
-*   From the source section drop-down menu, select the Master Branch
-*   Once the Master Branch has been selected, the page will be automatically refreshed with the detail ribbon display to indicate the successful deployment
+*   On the left hand side choose Pages tab
+*   From the source section drop-down menu, select the Main Branch
+*   Once the Main Branch has been selected, the page will be automatically refreshed with the detail ribbon display to indicate the successful deployment
 
 
 <br>
@@ -310,7 +322,7 @@ In order to create a copy of the original repository on our GitHub account to vi
 
 I used CodeAnywhere to work on the project. 
 
-*   Working with Code Anywhere was initially a challenge. It timed out manhy times and coldn't load propely. I lost many hours of work.
+*   Working with Code Anywhere was initially a challenge. It timed out many times and couldn't load properly. I lost many hours of work.
 *   After the fix was identified all was well. 
 
 
@@ -357,7 +369,7 @@ https://jshint.com/
 
 * ### Fonts and icons
 
-Goole Fonts and Icons
+Google Fonts and Icons
 
 https://fonts.google.com/
 
@@ -370,12 +382,6 @@ https://imgbin.com
 <br>
 <br>
 
-# Future Features
-
-I would work on making the game multiuser with a ranking of points. 
-
-<br>
-<br>
 
 ### <a name="acknowledge">Acknowledgements</a>
 
